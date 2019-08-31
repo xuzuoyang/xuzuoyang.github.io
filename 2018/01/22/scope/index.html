@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to the club.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zuoyang&#39;s Blog">
-<meta property="og:url" content="https://blog.zuoyang.club/archives/page/3/index.html">
+<meta name="description" content="Scopes are determined textually.">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python - scope">
+<meta property="og:url" content="https://blog.zuoyang.club/2018/01/22/scope/index.html">
 <meta property="og:site_name" content="Zuoyang&#39;s Blog">
-<meta property="og:description" content="Welcome to the club.">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="Scopes are determined textually.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-31T15:36:41.474Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zuoyang&#39;s Blog">
-<meta name="twitter:description" content="Welcome to the club.">
+<meta name="twitter:title" content="Python - scope">
+<meta name="twitter:description" content="Scopes are determined textually.">
 
 
 
@@ -104,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.zuoyang.club/archives/page/3/"/>
+  <link rel="canonical" href="https://blog.zuoyang.club/2018/01/22/scope/"/>
 
 
 
 
 
-  <title>归档 | Zuoyang's Blog</title>
+  <title>Python - scope | Zuoyang's Blog</title>
   
 
 
@@ -136,14 +138,14 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -184,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -194,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -204,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -214,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -227,7 +229,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            Search
           </a>
         </li>
       
@@ -247,7 +249,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -271,152 +273,223 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/01/22/scope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zuoyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/onizuka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zuoyang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Python - scope</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-22T00:02:58+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-31T23:36:41+08:00">
+                2019-08-31
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 13 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/21/argparse-in-python/" itemprop="url">
-              
-                <span itemprop="name">argparse-in-python</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-21T21:58:58+08:00"
-              content="2017-12-21" >
-          12-21
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
+              <div class="post-description">
+                  Scopes are determined textually.
+              </div>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/17/install-in-python/" itemprop="url">
-              
-                <span itemprop="name">install-in-python</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-17T10:00:15+08:00"
-              content="2017-12-17" >
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/16/list-set-dict-in-python/" itemprop="url">
-              
-                <span itemprop="name">list/set/dict-in-python</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-16T15:03:29+08:00"
-              content="2017-12-16" >
-          12-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h3 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h3><blockquote>
+<p>Scopes are determined textually.</p>
+</blockquote>
+<ul>
+<li>命名空间就是 object 和 name 的映射集合，python 中的实现为一个 dict，而作用域也就相当于命名空间生效的文本区域。</li>
+<li>Python 中的作用域基本分四种，LGBT，额，是 LEGB，Local &amp; Enclosing &amp; Global &amp; Builtin，即最内部（可能是函数里的函数）&amp; 次外部 &amp; 全局 &amp; 最外部，查找变量的话从里向外查找。</li>
+</ul>
+<h3 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h3><blockquote>
+<p>Names listed in a <a href="#global"><code>global</code></a> statement must not be used in the same code block textually preceding that <a href="#global"><code>global</code></a> statement.</p>
+<p>Names listed in a <a href="#global"><code>global</code></a> statement must not be defined as formal parameters or in a <a href="compound_stmts.html#for"><code>for</code></a> loop control target, <a href="compound_stmts.html#class"><code>class</code></a> definition, function definition, <a href="#import"><code>import</code></a>statement, or variable annotation.</p>
+<p>Names listed in a <a href="#nonlocal"><code>nonlocal</code></a> statement, unlike those listed in a <a href="#global"><code>global</code></a> statement, must refer to pre-existing bindings in an enclosing scope (the scope in which a new binding should be created cannot be determined unambiguously).</p>
+<p>Names listed in a <a href="#nonlocal"><code>nonlocal</code></a> statement must not collide with pre-existing bindings in the local scope.</p>
+</blockquote>
+<ul>
+<li><p>有 local, nonlocal 和 global 三个关键字，可以用来指定变量的作用域。</p>
+</li>
+<li><p>看官方文档发现了个小坑，nonlocal 和 global，前者如果指定一个没有定义的变量会报错，后者则不会，但是 global 不能在同一个作用域先被定义，然后用 global 指定。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scope_test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_local</span><span class="params">()</span>:</span></span><br><span class="line">        spam = <span class="string">"local spam"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_nonlocal</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> spam</span><br><span class="line">        spam = <span class="string">"nonlocal spam"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_global</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">global</span> spam</span><br><span class="line">        spam = <span class="string">"global spam"</span></span><br><span class="line"></span><br><span class="line">    spam = <span class="string">"test spam"</span></span><br><span class="line">    do_local()</span><br><span class="line">    print(<span class="string">"After local assignment:"</span>, spam)</span><br><span class="line">    do_nonlocal()</span><br><span class="line">    print(<span class="string">"After nonlocal assignment:"</span>, spam)</span><br><span class="line">    do_global()</span><br><span class="line">    print(<span class="string">"After global assignment:"</span>, spam)</span><br><span class="line"></span><br><span class="line">scope_test()</span><br><span class="line">print(<span class="string">"In global scope:"</span>, spam)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">After local assignment: test spam</span><br><span class="line">After <span class="keyword">nonlocal</span> assignment: <span class="keyword">nonlocal</span> spam</span><br><span class="line">After <span class="keyword">global</span> assignment: <span class="keyword">nonlocal</span> spam</span><br><span class="line">In <span class="keyword">global</span> scope: <span class="keyword">global</span> spam</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Builtin"><a href="#Builtin" class="headerlink" title="Builtin"></a>Builtin</h3><blockquote>
+<p>Objects such as modules and instances have an updateable <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__" target="_blank" rel="noopener"><code>__dict__</code></a> attribute; however, other objects may have write restrictions on their <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__" target="_blank" rel="noopener"><code>__dict__</code></a> attributes (for example, classes use a <a href="https://docs.python.org/3/library/types.html#types.MappingProxyType" target="_blank" rel="noopener"><code>types.MappingProxyType</code></a> to prevent direct dictionary updates).</p>
+<p>Without an argument, <a href="https://docs.python.org/3/library/functions.html#vars" target="_blank" rel="noopener"><code>vars()</code></a> acts like <a href="https://docs.python.org/3/library/functions.html#locals" target="_blank" rel="noopener"><code>locals()</code></a>. Note, the locals dictionary is only useful for reads since updates to the locals dictionary are ignored.</p>
+</blockquote>
+<ul>
+<li><p><code>globals()</code>: 返回当前模块范围定义的变量字典。可以在获取当前模块定义的类或函数时自省，另外可以直接修改这个字典来改变模块内的变量的定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># 此时 globals()['myfunc'] 的结果如下</span></span><br><span class="line">&#123;<span class="string">'myfunc'</span>: &lt;function __main__.myfunc&gt;&#125;</span><br><span class="line">globals()[<span class="string">'myfunc'</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment"># 此时 globals()['myfunc'] 结果为0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>locals()</code>: 获取当前局部作用域的变量字典。注意修改这个字典可能不会影响变量的定义，这点与 globals 不同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc</span><span class="params">()</span>:</span></span><br><span class="line">	a = <span class="number">11</span></span><br><span class="line">	print(locals())</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 此时执行 myfunc 的结果如下</span></span><br><span class="line">&#123;<span class="string">'a'</span>: <span class="number">11</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc</span><span class="params">()</span>:</span></span><br><span class="line">  	a = <span class="number">11</span></span><br><span class="line">    locals()[<span class="string">'a'</span>] = <span class="number">22</span></span><br><span class="line">    print(locals())</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 此时执行 myfunc 的结果不会改变</span></span><br><span class="line">&#123;<span class="string">'a'</span>: <span class="number">11</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>vars()</code>: Return the <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__" target="_blank" rel="noopener"><code>__dict__</code></a> attribute for a module, class, instance, or any other object with a <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__" target="_blank" rel="noopener"><code>__dict__</code></a> attribute.基本和locals()的用法一样，注意，locals dict是用来读取而不应该修改的。</p>
+</li>
+</ul>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/06/deepin/" rel="next" title="Deepin Trial">
+                <i class="fa fa-chevron-left"></i> Deepin Trial
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/10/shell/" rel="prev" title="Shell">
+                Shell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -424,6 +497,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -444,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -464,8 +550,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -476,7 +562,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -487,7 +573,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -509,6 +595,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keywords"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Builtin"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Builtin" class="headerlink" title="Builtin"></a>Builtin</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -533,7 +635,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -541,7 +643,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -649,6 +751,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

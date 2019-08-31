@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,7 +85,7 @@
 <meta property="og:url" content="https://blog.zuoyang.club/index.html">
 <meta property="og:site_name" content="Zuoyang&#39;s Blog">
 <meta property="og:description" content="Welcome to the club.">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zuoyang&#39;s Blog">
 <meta name="twitter:description" content="Welcome to the club.">
@@ -104,7 +104,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -136,7 +136,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -228,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            Search
           </a>
         </li>
       
@@ -248,7 +248,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -286,645 +286,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/06/03/ssh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zuoyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/onizuka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zuoyang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/03/ssh/" itemprop="url">ssh</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T20:27:53+08:00">
-                2018-06-03
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T08:19:42+08:00">
-                2019-08-21
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>references</p>
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a></li>
-<li><a href="https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/" target="_blank" rel="noopener">https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/</a></li>
-</ul>
-</blockquote>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
-<li>ssh是一种协议，用来安全登录远程服务器</li>
-<li>第一次登录时，需要同意添加远程主机的公钥，然后本机会利用此公钥加密登录密码，从而实现安全登录</li>
-<li>中间人攻击会假扮远程主机，用伪造的公钥获取登录密码，所以在第一次同意添加远程服务器时需要谨慎</li>
-<li>添加后的公钥会被保存在$HOME/.ssh/known_hosts文件中，另外系统也会有相应的文件，保存在/etc/ssh/ssh_known_hosts中</li>
-<li>ssh提供两种登录方式<ul>
-<li>密码登录</li>
-<li>公钥登录：需要添加本机的公钥到远程主机</li>
-</ul>
-</li>
-</ul>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
-<li>ssh-keygen用来生成本机的公钥和私钥，分别保存在$HOME/.ssh/下面的id_rsa.pub和id_rsa</li>
-<li>ssh-copy-id user@server用来把本机的公钥传送到远程服务器，之后就可以实现免密登录了，注意可能需要重启server的ssh服务，service ssh restart</li>
-</ul>
-<h3 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h3><ul>
-<li>本地生成多个公钥</li>
-<li>通过ssh config配置登录的参数</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/06/03/linux用户/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zuoyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/onizuka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zuoyang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/03/linux用户/" itemprop="url">linux用户</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T18:40:16+08:00">
-                2018-06-03
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T08:19:42+08:00">
-                2019-08-21
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>reference</p>
-<ul>
-<li><a href="https://unix.stackexchange.com/questions/121071/what-does-adduser-do-that-useradd-doesnt" target="_blank" rel="noopener">https://unix.stackexchange.com/questions/121071/what-does-adduser-do-that-useradd-doesnt</a></li>
-<li>​</li>
-</ul>
-</blockquote>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
-<li><p>id命令可以用来查看用户的基本信息，如下</p>
-<p>uid=1000(duoduo) gid=1000(duoduo) groups=1000(duoduo),27(sudo)</p>
-</li>
-</ul>
-<p>最后的groups表示此用户所在的组，sudo组说明可以行使sudo超级用户权限</p>
-<ul>
-<li>用户的信息存储在一系列的文本文件中<ul>
-<li>/etc/passwd 用户名、uid/gid、家目录、登录shell等</li>
-<li>/etc/group 用户组信息</li>
-<li>/etc/shadow 用户密码信息</li>
-<li>/etc/sudoers sudo用户信息，默认只有root</li>
-</ul>
-</li>
-<li>现在的linux新建用户之后会默认创建一个同名的用户组来放置新用户</li>
-<li>su可以用来切换到其他用户，-l表示新开shell也可以只写-，所以su - 默认打开root用户的shell，不过需要root密码。因为用户不应该互相知道对方的密码，所以最好不要用su而是用sudo代替</li>
-<li>sudo可以用来赋予要执行的命令超级用户的权限，前提是当前用户在sudo组，也就是sudoer。sudo需要输入的是当前用户的密码而不是root的密码，这样增加了超级用户账户的安全性。</li>
-</ul>
-<h3 id="创建新用户"><a href="#创建新用户" class="headerlink" title="创建新用户"></a>创建新用户</h3><ul>
-<li><p>useradd是底层的创建用户命令，需要加其他的参数来帮助创建家目录、指定登录shell等操作</p>
-<p>useradd -r -m -s /bin/bash duoduo # -r建立系统账号，-m创建登录目录，-s指定登录shell</p>
-</li>
-<li><p>推荐使用adduser来新建用户，adduser duoduo会执行以下操作</p>
-<ul>
-<li>创建名为duoduo的用户</li>
-<li>创建家目录，默认/home/duoduo并复制 /etc/skel的文件到下面</li>
-<li>创建一个名为duoduo的用户组并把新用户放进去</li>
-<li>提示输入新用户密码</li>
-<li>提示输入新用户其他信息</li>
-</ul>
-</li>
-<li><p>另外adduser可以用来添加一个用户到其他的group，adduser username newgroup</p>
-<p>adduser duoduo sudo 添加用户duoduo成为sudoer</p>
-</li>
-<li><p>usermod命令也可以用来添加用户到sudo组，usermod -aG newgroup username</p>
-<p>usermod -aG sudo duoduo # -a表示append到新的group</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/04/22/http安全/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zuoyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/onizuka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zuoyang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/22/http安全/" itemprop="url">http安全</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T12:38:05+08:00">
-                2018-04-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T08:19:42+08:00">
-                2019-08-21
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>参考：</p>
-<p>HTTP权威指南</p>
-<p><a href="https://segmentfault.com/a/1190000012466003" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012466003</a></p>
-<p><a href="https://www.zhihu.com/question/33645891" target="_blank" rel="noopener">https://www.zhihu.com/question/33645891</a></p>
-<p><a href="https://segmentfault.com/a/1190000010540911" target="_blank" rel="noopener">https://segmentfault.com/a/1190000010540911</a></p>
-</blockquote>
-<h3 id="1-authentication"><a href="#1-authentication" class="headerlink" title="1. authentication"></a>1. authentication</h3><ul>
-<li>basic auth</li>
-<li>digest auth</li>
-<li>oauth(open auth)</li>
-</ul>
-<h3 id="2-加密"><a href="#2-加密" class="headerlink" title="2. 加密"></a>2. 加密</h3><ul>
-<li>对称：发送方和每个收信方都要约定一个相同的key用来加密，这样一来会有很多key要维护，其次key的共享过程中很可能暴露，安全隐患较大</li>
-<li>非对称：如RSA算法，每个发送/接收方都维护一个public key和private key，公共密钥用来给别人加密要传送给自己的内容，而自己可以通过private key来解密报文，而且所有人都可以用这一个公共密钥来加密，解决了对称加密技术的成对密钥的N^2扩展问题</li>
-<li>混合加密：公开密钥的加密算法计算可能会很慢，所以常见的做法是混合对称和非对称加密方法，如先通过非对称方式建立安全通道，然后发送临时的随机对称密钥，通过更快的对称加密技术对其余的数据加密</li>
-</ul>
-<h3 id="3-数字签名-证书"><a href="#3-数字签名-证书" class="headerlink" title="3. 数字签名/证书"></a>3. 数字签名/证书</h3><ul>
-<li>数字签名：针对发送方可能会被假冒的情况，数字签名即发送方利用自己的私钥制作的特殊校验码，加在报文之后，这样的好处一是接收方可以通过公钥解密签名确认发送方身份，第二是防止报文被篡改，因为攻击者无法制作出私钥才能产生的校验码，所以报文内容被修改的话校验和会不再匹配</li>
-<li>数字证书：证书是第三方的签发机构，上面会有web站点（可以理解为发送方）的名称、主机名和公钥，还有签名机构的名称和签名，由于很多权威机构的证书会被预装到浏览器中，所以浏览器其实相当于已经知道颁发证书机构的公钥，通过证实该机构的签名即可认证web站点是安全的</li>
-<li>感觉签名和证书可以存在一种嵌套的关系，证书就是新的签名为旧的签名来担保，所以可以存在更多的签名来层层担保，直到最后的根证书。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/04/22/http基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zuoyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/onizuka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zuoyang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/22/http基础/" itemprop="url">http基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T12:37:48+08:00">
-                2018-04-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T08:19:42+08:00">
-                2019-08-21
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/04/10/shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -944,7 +305,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/10/shell/" itemprop="url">shell</a></h1>
+                <a class="post-title-link" href="/2018/04/10/shell/" itemprop="url">Shell</a></h1>
         
 
         <div class="post-meta">
@@ -954,9 +315,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T08:36:15+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T08:36:15+08:00">
                 2018-04-10
               </time>
             
@@ -970,10 +331,10 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
+                <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T08:19:42+08:00">
-                2019-08-21
+              <time title="Post modified" itemprop="dateModified" datetime="2019-09-01T00:41:03+08:00">
+                2019-09-01
               </time>
             
           </span>
@@ -987,7 +348,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1029,136 +390,646 @@
 
       
         
-          
-            <h3 id="shell-amp-终端-amp-终端模拟器"><a href="#shell-amp-终端-amp-终端模拟器" class="headerlink" title="shell &amp; 终端 &amp; 终端模拟器"></a>shell &amp; 终端 &amp; 终端模拟器</h3><p>TBC</p>
-<h3 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h3><ul>
-<li>文件目录<ul>
-<li>cp/mv/mkdir/rm/ln/ls</li>
-<li>ls<ul>
-<li>ls -d */</li>
-<li>ls -p | grep -v /</li>
-</ul>
-</li>
-<li>需要梳理一下/bin /usr/bin /usr/local/bin等关系</li>
-</ul>
-</li>
-<li>权限操作<ul>
-<li>用户<ul>
-<li>/etc/passwd, /etc/group, /etc/shadow</li>
-<li>su/sudo</li>
-<li>adduser/useradd/groupadd</li>
-</ul>
-</li>
-<li>文件<ul>
-<li>属性<ul>
-<li>文件类型： d/-/l/b/c</li>
-<li>2~9: owner(rwx), group(rwx), others(rwx)</li>
-<li>目录的rwx<ul>
-<li>r: ls 前提要有x</li>
-<li>w: 新建或删除文件，前提要有x</li>
-<li>x: cd</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>chmod<ul>
-<li>八进制表示法, octal: 755/422</li>
-<li>符号表示法: 多种设定可用逗号分隔，u+x,go=rw<ul>
-<li>更改谁: u/g/o/a</li>
-<li>操作: +/-/=</li>
-<li>权限: rwx</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>chown/chgrp</li>
-<li>umask</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>命令之上<ul>
-<li>type/which/man/info/apropos/alias</li>
-</ul>
-</li>
-<li>重定向</li>
-<li>管道</li>
-<li>expansion &amp; quoting</li>
-<li>文件/文本<ul>
-<li>输出<ul>
-<li>cat</li>
-<li>head/tail</li>
-<li>less</li>
-</ul>
-</li>
-<li>Filter<ul>
-<li>sort/cut/uniq/wc</li>
-</ul>
-</li>
-<li>搜索<ul>
-<li>find &amp; grep &amp; xargs</li>
-<li>tr</li>
-<li>awk</li>
-<li>sed</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="find-amp-grep-amp-xargs"><a href="#find-amp-grep-amp-xargs" class="headerlink" title="find &amp; grep &amp; xargs"></a>find &amp; grep &amp; xargs</h4><ul>
-<li>find<ul>
-<li>-name: find . -name “*.py”得加双引号，自带递归效果</li>
-<li>-i Ignore case</li>
-<li>-mindepth/maxdepth 搜索深度</li>
-<li>-exec: find . -iname “*.py” -exec md5 {} \; 待续</li>
-<li>-not Inverting match</li>
-<li>-perm octal/symbolic i.e. g=r/-g=r/644</li>
-<li>-empty</li>
-<li>-type d/f/s(socket)</li>
-<li>-size +100M/-100M/100M 单位可以是k/M/G</li>
-<li>-newer 时间</li>
-<li>查找隐藏文件或目录 find -type d/f -name “.*”</li>
-<li>查找最大或最小的N个文件 待续</li>
-</ul>
-</li>
-<li>grep<ul>
-<li>grep somestring/‘regex’/“regex” [file1, file2…]/FILE_PATTERN</li>
-<li>-r 可指定目录搜索</li>
-<li>-i Case Insensitive</li>
-<li>-w Search for full words</li>
-<li>-A, B, C Display lines after/before/around match</li>
-<li>-v Invert match</li>
-<li>-e Pattern</li>
-<li>-c Count matched lines</li>
-<li>-l Display matched file names</li>
-<li>-n Display matched line number</li>
-<li>-o show only matched string 这个在数匹配数的时候很有用，因为其他情况下只会列出匹配的行数而不是个数</li>
-<li>grep也接受标准输入，所以可以这么用grep foo - / echo longstrinput | grep somestr</li>
-<li>OR: -e “PATTERN1” -e “PATTERN2”或者-E “P1 | P2” </li>
-<li>E和e 是不一样的，-e指代pattern，E表示extended regexp</li>
-<li>AND: -e “P1.*P2” 或者用管道</li>
-<li>NOT: -v或者管道</li>
-<li>–exclude/–exclude-dir/–include “PATTERN”</li>
-<li>正则表达式<ul>
-<li>^PATTERN / PATTERN$: start/end of the line</li>
-<li>. single charactor</li>
-<li>*/+/?: 0 or more/1 or more/0 or 1注意+和？前面要加反斜杠escape</li>
-<li>[123]/[1-9] 在[]里加^表示反</li>
-<li>|表示OR，要escape</li>
-<li>{m, n}/{m}/{m,} 出现次数，包含边界，要escape</li>
-<li>IP address “\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)” 待续</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>xargs<ul>
-<li>ls somefiles | grep somestr和ls somefiles | xargs grep somestr结果不同，因为前者是针对列出的文件名结果进行搜索，而后者才是对这些文件的内容搜索，原因就是xargs可以用来把标准输入转化成参数。前者因为grep也可以接受标准输入所以搜索的对象是文件名，后者则是把这些文件转化成grep的文件参数</li>
-<li>find . -name ‘foldername’ | xargs cd 是无法进入文件夹的，因为cd是shell内建的函数，xargs执行的是文件命令，即/usr/bin/cd folder是无法进入文件夹的</li>
-</ul>
-</li>
-</ul>
+          A Unix shell is a command-line interpreter or shell that provides a command line user interface for Unix-like operating systems.
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/10/shell/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/01/22/scope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zuoyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/onizuka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zuoyang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/scope/" itemprop="url">Python - scope</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-22T00:02:58+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-31T23:36:41+08:00">
+                2019-08-31
+              </time>
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          Scopes are determined textually.
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/22/scope/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2018/01/06/deepin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zuoyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/onizuka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zuoyang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/06/deepin/" itemprop="url">Deepin Trial</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-06T13:32:41+08:00">
+                2018-01-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-09-01T00:37:11+08:00">
+                2019-09-01
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          深度操作系统项目是具备创新精神和活力的开源桌面操作系统，自始至终秉承开源理念，严格遵守GPL协议开发，所有程序开发代码均开源。深度操作系统项目开发代码已上传至Github，和社区及开源爱好者共同促进深度操作系统项目的发展，为中国的开源事业做出应有的贡献。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/06/deepin/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2017/12/21/argparse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zuoyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/onizuka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zuoyang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/21/argparse/" itemprop="url">Python Module - argparse</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:58:58+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-31T23:08:58+08:00">
+                2019-08-31
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          Argparse 模块是 python 的内置模块，适合用来写一些 cli 脚本。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/21/argparse/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.zuoyang.club/2017/12/17/distribution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zuoyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/onizuka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zuoyang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/17/distribution/" itemprop="url">Python - distribution</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-17T10:00:15+08:00">
+                2017-12-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-31T22:45:56+08:00">
+                2019-08-31
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          Distribution is a versioned archive file that contains python and other resource files that are used to distribute a release.
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/17/distribution/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1195,10 +1066,6 @@
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1246,8 +1113,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1258,7 +1125,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -1269,7 +1136,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -1315,7 +1182,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1323,7 +1190,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
